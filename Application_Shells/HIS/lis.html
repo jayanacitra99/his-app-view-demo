@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>LIS Integration - Hospital Information System (HIS)</title>
+
+    <!-- Prevent the demo from appearing in search engines -->
+    <meta name="robots" content="noindex">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../../public/vendor/spinkit.css" rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../../public/vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../../public/css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../../public/css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../../public/css/preloader.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../../public/css/app.css" rel="stylesheet">
+
+</head>
+
+<body class="layout-app">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+    </div>
+
+    <!-- Drawer Layout -->
+    <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
+        <div class="mdk-drawer-layout__content page-content">
+
+            <!-- Header -->
+            <!-- Navbar -->
+            <div class="navbar navbar-expand pr-0 navbar-light border-bottom-2" id="default-navbar" data-primary>
+
+                <!-- Navbar Toggler -->
+                <button class="navbar-toggler w-auto mr-16pt d-block d-lg-none rounded-0" type="button" data-toggle="sidebar">
+                    <span class="material-icons">short_text</span>
+                </button>
+                <!-- // END Navbar Toggler -->
+
+                <!-- Navbar Brand -->
+                <a href="index.html" class="navbar-brand mr-16pt d-lg-none">
+                    <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+                        <span class="avatar-title rounded bg-primary">
+                            <i class="material-icons">local_hospital</i>
+                        </span>
+                    </span>
+                    <span class="d-none d-lg-block">HIS</span>
+                </a>
+                <!-- // END Navbar Brand -->
+
+                <span class="d-none d-md-flex align-items-center mr-16pt">
+                    <span class="avatar avatar-sm mr-12pt">
+                        <span class="avatar-title rounded navbar-avatar">
+                            <i class="material-icons">science</i>
+                        </span>
+                    </span>
+                    <small class="flex d-flex flex-column">
+                        <strong class="navbar-text-100">Pending Tests</strong>
+                        <span class="navbar-text-50">32 Tests</span>
+                    </small>
+                </span>
+                <span class="d-none d-md-flex align-items-center mr-16pt">
+                    <span class="avatar avatar-sm mr-12pt">
+                        <span class="avatar-title rounded navbar-avatar">
+                            <i class="material-icons">assignment_turned_in</i>
+                        </span>
+                    </span>
+                    <small class="flex d-flex flex-column">
+                        <strong class="navbar-text-100">Completed Today</strong>
+                        <span class="navbar-text-50">48 Tests</span>
+                    </small>
+                </span>
+
+                <div class="flex"></div>
+
+                <!-- Navbar Menu -->
+                <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                    <!-- Notifications dropdown -->
+                    <div class="nav-item dropdown dropdown-notifications dropdown-xs-down-full" data-toggle="tooltip" data-title="Messages" data-placement="bottom" data-boundary="window">
+                        <button class="nav-link btn-flush dropdown-toggle" type="button" data-toggle="dropdown" data-caret="false">
+                            <i class="material-icons icon-24pt">mail_outline</i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div data-perfect-scrollbar class="position-relative">
+                                <div class="dropdown-header"><strong>Messages</strong></div>
+                                <div class="list-group list-group-flush mb-0">
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action unread">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">5 minutes ago</small>
+                                            <span class="ml-auto unread-indicator bg-accent"></span>
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <img src="../../public/images/people/110/woman-5.jpg" alt="people" class="avatar-img rounded-circle">
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+                                                <strong class="text-black-100">Lab Technician</strong>
+                                                <span class="text-black-70">Urgent lab results ready for review.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // END Notifications dropdown -->
+
+                    <!-- Notifications dropdown -->
+                    <div class="nav-item ml-16pt dropdown dropdown-notifications dropdown-xs-down-full" data-toggle="tooltip" data-title="Notifications" data-placement="bottom" data-boundary="window">
+                        <button class="nav-link btn-flush dropdown-toggle" type="button" data-toggle="dropdown" data-caret="false">
+                            <i class="material-icons">notifications_none</i>
+                            <span class="badge badge-notifications badge-accent">2</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div data-perfect-scrollbar class="position-relative">
+                                <div class="dropdown-header"><strong>System notifications</strong></div>
+                                <div class="list-group list-group-flush mb-0">
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action unread">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">3 minutes ago</small>
+                                            <span class="ml-auto unread-indicator bg-accent"></span>
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <span class="avatar-title rounded-circle bg-light">
+                                                    <i class="material-icons font-size-16pt text-accent">science</i>
+                                                </span>
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+                                                <span class="text-black-70">New lab test results available.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">1 hour ago</small>
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <span class="avatar-title rounded-circle bg-light">
+                                                    <i class="material-icons font-size-16pt text-primary">assignment_turned_in</i>
+                                                </span>
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+                                                <span class="text-black-70">LIS system maintenance scheduled for tonight.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // END Notifications dropdown -->
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown" data-caret="false">
+                            <span class="avatar avatar-sm mr-8pt2">
+                                <span class="avatar-title rounded-circle bg-primary">
+                                    <i class="material-icons">account_box</i>
+                                </span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-header"><strong>Account</strong></div>
+                            <a class="dropdown-item" href="#">Edit Account</a>
+                            <a class="dropdown-item" href="#">User Settings</a>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- // END Navbar Menu -->
+            </div>
+            <!-- // END Navbar -->
+            <!-- // END Header -->
+
+            <!-- Page Content -->
+            <div class="container page__container">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Integrations</li>
+                    <li class="breadcrumb-item active">LIS Integration</li>
+                </ol>
+
+                <div class="page-section">
+                    <div class="page-separator">
+                        <div class="page-separator__text">Laboratory Information System (LIS) Integration</div>
+                    </div>
+
+                    <div class="row mb-lg-8pt">
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center">
+                                    <div class="flex">
+                                        <h4 class="card-title">LIS Integration Status</h4>
+                                        <p class="card-subtitle">Connection and Service Status</p>
+                                    </div>
+                                    <div class="badge badge-success">Connected</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="alert alert-soft-success d-flex" role="alert">
+                                        <i class="material-icons mr-3">check_circle</i>
+                                        <div class="text-body">LIS connection is active and functioning properly.</div>
+                                    </div>
+                                    
+                                    <div class="row mb-4">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">LIS Server</label>
+                                                <input type="text" class="form-control" value="lis.hospital.local" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Last Communication</label>
+                                                <input type="text" class="form-control" value="Today, 10:15 AM" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mb-4">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Protocol</label>
+                                                <input type="text" class="form-control" value="HL7 v2.5" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Connection Type</label>
+                                                <input type="text" class="form-control" value="TCP/IP" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-primary">Test Connection</button>
+                                            <button class="btn btn-outline-secondary">Update Configuration</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page-separator">
+                                <div class="page-separator__text">Laboratory Tests</div>
+                            </div>
+                            
+                            <div class="card mb-lg-8pt">
+                                <div class="table-responsive" data-toggle="lists" data-lists-values='["js-lists-values-patient", "js-lists-values-test", "js-lists-values-status", "js-lists-values-date"]'>
+                                    <table class="table mb-0 thead-border-top-0 table-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-patient">Patient</a>
+                                                </th>
+                                                <th>
+                                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-test">Test</a>
+                                                </th>
+                                                <th>
+                                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-status">Status</a>
+                                                </th>
+                                                <th>
+                                                    <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-date">Date</a>
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list">
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar avatar-xs mr-2">
+                                                            <img src="../../public/images/256_rsz_1andy-lee-642320-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                        </div>
+                                                        <div class="flex d-flex flex-column">
+                                                            <p class="mb-0"><strong class="js-lists-values-patient">Ahmad Wijaya</strong></p>
+                                                            <small class="text-muted">ID: 19283746</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="js-lists-values-test">Complete Blood Count (CBC)</td>
+                                                <td>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="badge badge-warning js-lists-values-status">Pending</span>
+                                                    </div>
+                                                </td>
+                                                <td class="js-lists-values-date">12 Jun 2023</td>
+                                                <td class="text-right">
+                                                    <a href="#" class="text-50"><i class="material-icons">more_vert</i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar avatar-xs mr-2">
+                                                            <img src="../../public/images/256_rsz_1andy-lee-642320-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                        </div>
+                                                        <div class="flex d-flex flex-column">
+                                                            <p class="mb-0"><strong class="js-lists-values-patient">Siti Rahayu</strong></p>
+                                                            <small class="text-muted">ID: 29384756</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="js-lists-values-test">Liver Function Test</td>
+                                                <td>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="badge badge-success js-lists-values-status">Completed</span>
+                                                    </div>
+                                                </td>
+                                                <td class="js-lists-values-date">10 Jun 2023</td>
+                                                <td class="text-right">
+                                                    <a href="#" class="text-50"><i class="material-icons">more_vert</i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar avatar-xs mr-2">
+                                                            <img src="../../public/images/256_rsz_1andy-lee-642320-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                        </div>
+                                                        <div class="flex d-flex flex-column">
+                                                            <p class="mb-0"><strong class="js-lists-values-patient">Budi Santoso</strong></p>
+                                                            <small class="text-muted">ID: 38475647</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="js-lists-values-test">Urinalysis</td>
+                                                <td>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="badge badge-success js-lists-values-status">Completed</span>
+                                                    </div>
+                                                </td>
+                                                <td class="js-lists-values-date">8 Jun 2023</td>
+                                                <td class="text-right">
+                                                    <a href="#" class="text-50"><i class="material-icons">more_vert</i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar avatar-xs mr-2">
+                                                            <img src="../../public/images/256_rsz_1andy-lee-642320-unsplash.jpg" alt="Avatar" class="avatar-img rounded-circle">
+                                                        </div>
+                                                        <div class="flex d-flex flex-column">
+                                                            <p class="mb-0"><strong class="js-lists-values-patient">Dewi Suryani</strong></p>
+                                                            <small class="text-muted">ID: 47563829</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="js-lists-values-test">Lipid Profile</td>
+                                                <td>
+                                                    <div class="d-flex flex-column">
+                                                        <span class="badge badge-danger js-lists-values-status">Cancelled</span>
+                                                    </div>
+                                                </td>
+                                                <td class="js-lists-values-date">7 Jun 2023</td>
+                                                <td class="text-right">
+                                                    <a href="#" class="text-50"><i class="material-icons">more_vert</i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card-footer p-8pt">
+                                    <ul class="pagination justify-content-start pagination-xsm m-0">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true" class="material-icons">chevron_left</span>
+                                                <span>Prev</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#" aria-label="1">
+                                                <span>1</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="2">
+                                                <span>2</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span>Next</span>
+                                                <span aria-hidden="true" class="material-icons">chevron_right</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="page-separator">
+                                <div class="page-separator__text">LIS Tools</div>
+                            </div>
+                            <div class="card mb-lg-8pt">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="material-icons text-50 mr-2">add_circle</i>
+                                        <a href="#" class="text-body"><strong>Order New Test</strong></a>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="material-icons text-50 mr-2">search</i>
+                                        <a href="#" class="text-body"><strong>Search Test Results</strong></a>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="material-icons text-50 mr-2">history</i>
+                                        <a href="#" class="text-body"><strong>Test History</strong></a>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="material-icons text-50 mr-2">print</i>
+                                        <a href="#" class="text-body"><strong>Print Reports</strong></a>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <i class="material-icons text-50 mr-2">settings</i>
+                                        <a href="#" class="text-body"><strong>LIS Settings</strong></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page-separator">
+                                <div class="page-separator__text">Test Categories</div>
+                            </div>
+                            <div class="card mb-lg-8pt">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <span class="avatar avatar-xs mr-2">
+                                            <span class="avatar-title rounded-circle bg-primary">
+                                                <i class="material-icons">opacity</i>
+                                            </span>
+                                        </span>
+                                        <div class="flex d-flex flex-column">
+                                            <strong>Hematology</strong>
+                                            <small class="text-muted">CBC, ESR, Blood Typing</small>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="text-50"><i class="material-icons">arrow_forward</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <span class="avatar avatar-xs mr-2">
+                                            <span class="avatar-title rounded-circle bg-accent">
+                                                <i class="material-icons">biotech</i>
+                                            </span>
+                                        </span>
+                                        <div class="flex d-flex flex-column">
+                                            <strong>Biochemistry</strong>
+                                            <small class="text-muted">Liver, Kidney, Lipid Profiles</small>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="text-50"><i class="material-icons">arrow_forward</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <span class="avatar avatar-xs mr-2">
+                                            <span class="avatar-title rounded-circle bg-warning">
+                                                <i class="material-icons">colorize</i>
+                                            </span>
+                                        </span>
+                                        <div class="flex d-flex flex-column">
+                                            <strong>Microbiology</strong>
+                                            <small class="text-muted">Culture, Sensitivity, Gram Stain</small>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="text-50"><i class="material-icons">arrow_forward</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item d-flex align-items-center">
+                                        <span class="avatar avatar-xs mr-2">
+                                            <span class="avatar-title rounded-circle bg-success">
+                                                <i class="material-icons">invert_colors</i>
+                                            </span>
+                                        </span>
+                                        <div class="flex d-flex flex-column">
+                                            <strong>Urinalysis</strong>
+                                            <small class="text-muted">Routine, Microscopy, 24-Hour</small>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="text-50"><i class="material-icons">arrow_forward</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="page-separator">
+                                <div class="page-separator__text">LIS Statistics</div>
+                            </div>
+                            <div class="card mb-lg-8pt">
+                                <div class="card-body">
+                                    <div class="text-center mb-4">
+                                        <span class="material-icons text-50 mb-1">science</span>
+                                        <h2 class="m-0">32</h2>
+                                        <p class="text-70">Pending Tests</p>
+                                    </div>
+                                    <div class="text-center mb-4">
+                                        <span class="material-icons text-50 mb-1">assignment_turned_in</span>
+                                        <h2 class="m-0">48</h2>
+                                        <p class="text-70">Completed Today</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <span class="material-icons text-50 mb-1">speed</span>
+                                        <h2 class="m-0">1.2 hrs</h2>
+                                        <p class="text-70">Average Turnaround Time</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // END Page Content -->
+
+            <!-- Footer -->
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon" src="../../public/images/logo/black-70@2x.png" width="30" alt="HIS">
+                        Hospital Information System
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">Hospital Information System (HIS) is a comprehensive solution for healthcare facilities, featuring BPJS, SATUSEHAT, LIS, RIS Integration & Back Office Modules.</p>
+                    <p class="mb-8pt d-flex">
+                        <a href="" class="text-70 text-underline mr-8pt small">Terms</a>
+                        <a href="" class="text-70 text-underline small">Privacy policy</a>
+                    </p>
+                    <p class="text-50 small mt-n1 mb-0">Copyright 2023 &copy; All rights reserved.</p>
+                </div>
+            </div>
+            <!-- // END Footer -->
+        </div>
+
+        <!-- // END drawer-layout__content -->
+
+        <!-- Drawer -->
+        <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left" data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+                    <div class="d-flex align-items-center navbar-height">
+                        <form action="index.html" class="search-form search-form--black mx-16pt pr-0 pl-16pt">
+                            <input type="text" class="form-control pl-0" placeholder="Search">
+                            <button class="btn" type="submit"><i class="material-icons">search</i></button>
+                        </form>
+                    </div>
+
+                    <a href="index.html" class="sidebar-brand">
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+                            <span class="avatar-title rounded bg-primary">
+                                <i class="material-icons">local_hospital</i>
+                            </span>
+                        </span>
+                        <span>HIS</span>
+                    </a>
+
+                    <div class="sidebar-heading">Main Menu</div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="index.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dashboard</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people</span>
+                                <span class="sidebar-menu-text">Patient Management</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">event_available</span>
+                                <span class="sidebar-menu-text">Appointments</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">assignment</span>
+                                <span class="sidebar-menu-text">Medical Records</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_pharmacy</span>
+                                <span class="sidebar-menu-text">Pharmacy</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="sidebar-heading">Integrations</div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="bpjs.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">security</span>
+                                <span class="sidebar-menu-text">BPJS Integration</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="satusehat.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">cloud_done</span>
+                                <span class="sidebar-menu-text">SATUSEHAT Integration</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item active">
+                            <a class="sidebar-menu-button" href="lis.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">science</span>
+                                <span class="sidebar-menu-text">LIS Integration</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="ris.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">image</span>
+                                <span class="sidebar-menu-text">RIS Integration</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="sidebar-heading">Back Office</div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="backoffice.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">business</span>
+                                <span class="sidebar-menu-text">Back Office Modules</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">monetization_on</span>
+                                <span class="sidebar-menu-text">Billing & Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">assessment</span>
+                                <span class="sidebar-menu-text">Reports</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">settings</span>
+                                <span class="sidebar-menu-text">Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- // END Sidebar Content -->
+                </div>
+            </div>
+        </div>
+        <!-- // END Drawer -->
+    </div>
+    <!-- // END Drawer Layout -->
+
+    <!-- jQuery -->
+    <script src="../../public/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../../public/vendor/popper.min.js"></script>
+    <script src="../../public/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../../public/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- DOM Factory -->
+    <script src="../../public/vendor/dom-factory.js"></script>
+
+    <!-- MDK -->
+    <script src="../../public/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../../public/js/app.js"></script>
+
+    <!-- Preloader -->
+    <script src="../../public/js/preloader.js"></script>
+
+</body>
+
+</html>
