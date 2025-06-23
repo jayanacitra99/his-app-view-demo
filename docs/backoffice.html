@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Back Office Modules - Hospital Information System (HIS)</title>
+
+    <!-- Prevent the demo from appearing in search engines -->
+    <meta name="robots" content="noindex">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../../public/vendor/spinkit.css" rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../../public/vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../../public/css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../../public/css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../../public/css/preloader.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../../public/css/app.css" rel="stylesheet">
+
+</head>
+
+<body class="layout-app">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+    </div>
+
+    <!-- Drawer Layout -->
+    <div class="mdk-drawer-layout js-mdk-drawer-layout" data-push data-responsive-width="992px">
+        <div class="mdk-drawer-layout__content page-content">
+
+            <!-- Header -->
+            <!-- Navbar -->
+            <div class="navbar navbar-expand pr-0 navbar-light border-bottom-2" id="default-navbar" data-primary>
+
+                <!-- Navbar Toggler -->
+                <button class="navbar-toggler w-auto mr-16pt d-block d-lg-none rounded-0" type="button" data-toggle="sidebar">
+                    <span class="material-icons">short_text</span>
+                </button>
+                <!-- // END Navbar Toggler -->
+
+                <!-- Navbar Brand -->
+                <a href="index.html" class="navbar-brand mr-16pt d-lg-none">
+                    <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
+                        <span class="avatar-title rounded bg-primary">
+                            <i class="material-icons">local_hospital</i>
+                        </span>
+                    </span>
+                    <span class="d-none d-lg-block">HIS</span>
+                </a>
+                <!-- // END Navbar Brand -->
+
+                <span class="d-none d-md-flex align-items-center mr-16pt">
+                    <span class="avatar avatar-sm mr-12pt">
+                        <span class="avatar-title rounded navbar-avatar">
+                            <i class="material-icons">business</i>
+                        </span>
+                    </span>
+                    <small class="flex d-flex flex-column">
+                        <strong class="navbar-text-100">Revenue Today</strong>
+                        <span class="navbar-text-50">Rp 25,750,000</span>
+                    </small>
+                </span>
+                <span class="d-none d-md-flex align-items-center mr-16pt">
+                    <span class="avatar avatar-sm mr-12pt">
+                        <span class="avatar-title rounded navbar-avatar">
+                            <i class="material-icons">inventory</i>
+                        </span>
+                    </span>
+                    <small class="flex d-flex flex-column">
+                        <strong class="navbar-text-100">Inventory Alerts</strong>
+                        <span class="navbar-text-50">12 Items</span>
+                    </small>
+                </span>
+
+                <div class="flex"></div>
+
+                <!-- Navbar Menu -->
+                <div class="nav navbar-nav flex-nowrap d-flex mr-16pt">
+
+                    <!-- Notifications dropdown -->
+                    <div class="nav-item dropdown dropdown-notifications dropdown-xs-down-full" data-toggle="tooltip" data-title="Messages" data-placement="bottom" data-boundary="window">
+                        <button class="nav-link btn-flush dropdown-toggle" type="button" data-toggle="dropdown" data-caret="false">
+                            <i class="material-icons icon-24pt">mail_outline</i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div data-perfect-scrollbar class="position-relative">
+                                <div class="dropdown-header"><strong>Messages</strong></div>
+                                <div class="list-group list-group-flush mb-0">
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action unread">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">5 minutes ago</small>
+                                            <span class="ml-auto unread-indicator bg-accent"></span>
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <img src="../../public/images/people/110/woman-5.jpg" alt="people" class="avatar-img rounded-circle">
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+                                                <strong class="text-black-100">Finance Manager</strong>
+                                                <span class="text-black-70">Monthly financial report is ready for review.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // END Notifications dropdown -->
+
+                    <!-- Notifications dropdown -->
+                    <div class="nav-item ml-16pt dropdown dropdown-notifications dropdown-xs-down-full" data-toggle="tooltip" data-title="Notifications" data-placement="bottom" data-boundary="window">
+                        <button class="nav-link btn-flush dropdown-toggle" type="button" data-toggle="dropdown" data-caret="false">
+                            <i class="material-icons">notifications_none</i>
+                            <span class="badge badge-notifications badge-accent">2</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div data-perfect-scrollbar class="position-relative">
+                                <div class="dropdown-header"><strong>System notifications</strong></div>
+                                <div class="list-group list-group-flush mb-0">
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action unread">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">3 minutes ago</small>
+                                            <span class="ml-auto unread-indicator bg-accent"></span>
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <span class="avatar-title rounded-circle bg-light">
+                                                    <i class="material-icons font-size-16pt text-accent">business</i>
+                                                </span>
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+                                                <span class="text-black-70">Low inventory alert: 5 critical medications.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <a href="javascript:void(0);" class="list-group-item list-group-item-action">
+                                        <span class="d-flex align-items-center mb-1">
+                                            <small class="text-black-50">1 hour ago</small>
+                                        </span>
+                                        <span class="d-flex">
+                                            <span class="avatar avatar-xs mr-2">
+                                                <span class="avatar-title rounded-circle bg-light">
+                                                    <i class="material-icons font-size-16pt text-primary">monetization_on</i>
+                                                </span>
+                                            </span>
+                                            <span class="flex d-flex flex-column">
+                                                <span class="text-black-70">Monthly financial report is ready for review.</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // END Notifications dropdown -->
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown" data-caret="false">
+                            <span class="avatar avatar-sm mr-8pt2">
+                                <span class="avatar-title rounded-circle bg-primary">
+                                    <i class="material-icons">account_box</i>
+                                </span>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-header"><strong>Account</strong></div>
+                            <a class="dropdown-item" href="#">Edit Account</a>
+                            <a class="dropdown-item" href="#">User Settings</a>
+                            <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- // END Navbar Menu -->
+            </div>
+            <!-- // END Navbar -->
+            <!-- // END Header -->
+
+            <!-- Page Content -->
+            <div class="container page__container">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Back Office Modules</li>
+                </ol>
+
+                <div class="page-section">
+                    <div class="page-separator">
+                        <div class="page-separator__text">Back Office Modules</div>
+                    </div>
+
+                    <div class="row card-group-row mb-lg-8pt">
+                        <div class="col-lg-4 col-md-6 card-group-row__col">
+                            <div class="card card-group-row__card">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <div class="avatar avatar-lg mb-16pt">
+                                        <span class="avatar-title rounded-circle bg-primary">
+                                            <i class="material-icons">monetization_on</i>
+                                        </span>
+                                    </div>
+                                    <h4 class="mb-8pt">Finance & Accounting</h4>
+                                    <p class="text-black-70 text-center mb-16pt">Manage hospital finances, billing, payments, and accounting operations.</p>
+                                    <a href="#" class="btn btn-outline-primary">Access Module</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 card-group-row__col">
+                            <div class="card card-group-row__card">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <div class="avatar avatar-lg mb-16pt">
+                                        <span class="avatar-title rounded-circle bg-accent">
+                                            <i class="material-icons">people</i>
+                                        </span>
+                                    </div>
+                                    <h4 class="mb-8pt">Human Resources</h4>
+                                    <p class="text-black-70 text-center mb-16pt">Manage staff, scheduling, payroll, recruitment, and employee records.</p>
+                                    <a href="#" class="btn btn-outline-accent">Access Module</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 card-group-row__col">
+                            <div class="card card-group-row__card">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <div class="avatar avatar-lg mb-16pt">
+                                        <span class="avatar-title rounded-circle bg-warning">
+                                            <i class="material-icons">inventory</i>
+                                        </span>
+                                    </div>
+                                    <h4 class="mb-8pt">Inventory Management</h4>
+                                    <p class="text-black-70 text-center mb-16pt">Track medical supplies, equipment, medications, and procurement.</p>
+                                    <a href="#" class="btn btn-outline-warning">Access Module</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 card-group-row__col">
+                            <div class="card card-group-row__card">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <div class="avatar avatar-lg mb-16pt">
+                                        <span class="avatar-title rounded-circle bg-success">
+                                            <i class="material-icons">assessment</i>
+                                        </span>
+                                    </div>
+                                    <h4 class="mb-8pt">Reports & Analytics</h4>
+                                    <p class="text-black-70 text-center mb-16pt">Generate financial, operational, and clinical reports and analytics.</p>
+                                    <a href="#" class="btn btn-outline-success">Access Module</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 card-group-row__col">
+                            <div class="card card-group-row__card">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <div class="avatar avatar-lg mb-16pt">
+                                        <span class="avatar-title rounded-circle bg-info">
+                                            <i class="material-icons">support_agent</i>
+                                        </span>
+                                    </div>
+                                    <h4 class="mb-8pt">Customer Service</h4>
+                                    <p class="text-black-70 text-center mb-16pt">Manage patient inquiries, feedback, complaints, and service quality.</p>
+                                    <a href="#" class="btn btn-outline-info">Access Module</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 card-group-row__col">
+                            <div class="card card-group-row__card">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <div class="avatar avatar-lg mb-16pt">
+                                        <span class="avatar-title rounded-circle bg-danger">
+                                            <i class="material-icons">admin_panel_settings</i>
+                                        </span>
+                                    </div>
+                                    <h4 class="mb-8pt">Administration</h4>
+                                    <p class="text-black-70 text-center mb-16pt">Manage hospital policies, compliance, accreditation, and governance.</p>
+                                    <a href="#" class="btn btn-outline-danger">Access Module</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-separator">
+                        <div class="page-separator__text">Financial Overview</div>
+                    </div>
+
+                    <div class="row mb-lg-8pt">
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center">
+                                    <div class="flex">
+                                        <h4 class="card-title">Revenue & Expenses</h4>
+                                        <p class="card-subtitle">Financial Performance</p>
+                                    </div>
+                                    <div class="dropdown">
+                                        <a href="#" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">This Month</a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a href="#" class="dropdown-item">This Week</a>
+                                            <a href="#" class="dropdown-item active">This Month</a>
+                                            <a href="#" class="dropdown-item">This Year</a>
+                                            <a href="#" class="dropdown-item">Custom Range</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart" style="height: 320px;">
+                                        <div class="text-center">
+                                            <h4>Revenue vs Expenses (June 2023)</h4>
+                                            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center mb-24pt">
+                                                <div class="d-flex align-items-center mr-16pt">
+                                                    <div class="w-8px h-8px rounded bg-primary mr-8pt"></div>
+                                                    <div class="flex">Revenue</div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="w-8px h-8px rounded bg-accent mr-8pt"></div>
+                                                    <div class="flex">Expenses</div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <div class="text-center mb-4">
+                                                        <span class="material-icons text-50 mb-1">attach_money</span>
+                                                        <h2 class="m-0">Rp 750M</h2>
+                                                        <p class="text-70">Total Revenue</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="text-center mb-4">
+                                                        <span class="material-icons text-50 mb-1">money_off</span>
+                                                        <h2 class="m-0">Rp 520M</h2>
+                                                        <p class="text-70">Total Expenses</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="text-center mb-4">
+                                                        <span class="material-icons text-50 mb-1">savings</span>
+                                                        <h2 class="m-0">Rp 230M</h2>
+                                                        <p class="text-70">Net Profit</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="text-center mb-4">
+                                                        <span class="material-icons text-50 mb-1">trending_up</span>
+                                                        <h2 class="m-0">30.7%</h2>
+                                                        <p class="text-70">Profit Margin</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center">
+                                    <div class="flex">
+                                        <h4 class="card-title">Revenue Sources</h4>
+                                        <p class="card-subtitle">Revenue Breakdown</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item d-flex align-items-center px-0">
+                                            <div class="avatar avatar-sm mr-3">
+                                                <span class="avatar-title rounded bg-primary">
+                                                    <i class="material-icons">local_hospital</i>
+                                                </span>
+                                            </div>
+                                            <div class="flex">
+                                                <strong>Inpatient Services</strong>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress" style="width: 100%; height: 4px;">
+                                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <small class="text-muted ml-2">40%</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-center px-0">
+                                            <div class="avatar avatar-sm mr-3">
+                                                <span class="avatar-title rounded bg-accent">
+                                                    <i class="material-icons">medical_services</i>
+                                                </span>
+                                            </div>
+                                            <div class="flex">
+                                                <strong>Outpatient Services</strong>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress" style="width: 100%; height: 4px;">
+                                                        <div class="progress-bar bg-accent" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <small class="text-muted ml-2">25%</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-center px-0">
+                                            <div class="avatar avatar-sm mr-3">
+                                                <span class="avatar-title rounded bg-warning">
+                                                    <i class="material-icons">science</i>
+                                                </span>
+                                            </div>
+                                            <div class="flex">
+                                                <strong>Laboratory Services</strong>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress" style="width: 100%; height: 4px;">
+                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <small class="text-muted ml-2">15%</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-center px-0">
+                                            <div class="avatar avatar-sm mr-3">
+                                                <span class="avatar-title rounded bg-success">
+                                                    <i class="material-icons">image</i>
+                                                </span>
+                                            </div>
+                                            <div class="flex">
+                                                <strong>Radiology Services</strong>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress" style="width: 100%; height: 4px;">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 12%;" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <small class="text-muted ml-2">12%</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item d-flex align-items-center px-0">
+                                            <div class="avatar avatar-sm mr-3">
+                                                <span class="avatar-title rounded bg-info">
+                                                    <i class="material-icons">local_pharmacy</i>
+                                                </span>
+                                            </div>
+                                            <div class="flex">
+                                                <strong>Pharmacy</strong>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress" style="width: 100%; height: 4px;">
+                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 8%;" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <small class="text-muted ml-2">8%</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="page-separator">
+                        <div class="page-separator__text">Inventory Status</div>
+                    </div>
+
+                    <div class="card mb-lg-8pt">
+                        <div class="card-header d-flex align-items-center">
+                            <div class="flex">
+                                <h4 class="card-title">Critical Inventory Items</h4>
+                                <p class="card-subtitle">Items requiring immediate attention</p>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-primary">View All Inventory</a>
+                        </div>
+                        <div class="table-responsive" data-toggle="lists" data-lists-values='["js-lists-values-item", "js-lists-values-category", "js-lists-values-status", "js-lists-values-quantity"]'>
+                            <table class="table mb-0 thead-border-top-0 table-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-item">Item</a>
+                                        </th>
+                                        <th>
+                                            <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-category">Category</a>
+                                        </th>
+                                        <th>
+                                            <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-status">Status</a>
+                                        </th>
+                                        <th>
+                                            <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-quantity">Quantity</a>
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list">
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <strong class="js-lists-values-item">Surgical Masks</strong>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-category">PPE</td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <span class="badge badge-danger js-lists-values-status">Critical</span>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-quantity">50 boxes</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-sm btn-outline-primary">Order</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <strong class="js-lists-values-item">Insulin</strong>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-category">Medication</td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <span class="badge badge-warning js-lists-values-status">Low</span>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-quantity">120 vials</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-sm btn-outline-primary">Order</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <strong class="js-lists-values-item">IV Solution</strong>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-category">Supplies</td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <span class="badge badge-warning js-lists-values-status">Low</span>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-quantity">75 bags</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-sm btn-outline-primary">Order</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <strong class="js-lists-values-item">Surgical Gloves</strong>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-category">PPE</td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <span class="badge badge-danger js-lists-values-status">Critical</span>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-quantity">30 boxes</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-sm btn-outline-primary">Order</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <strong class="js-lists-values-item">Antibiotics</strong>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-category">Medication</td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <span class="badge badge-warning js-lists-values-status">Low</span>
+                                            </div>
+                                        </td>
+                                        <td class="js-lists-values-quantity">85 packs</td>
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-sm btn-outline-primary">Order</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- // END Page Content -->
+
+            <!-- Footer -->
+            <div class="bg-white border-top-2 mt-auto">
+                <div class="container page__container page-section d-flex flex-column">
+                    <p class="text-70 brand mb-24pt">
+                        <img class="brand-icon" src="../../public/images/logo/black-70@2x.png" width="30" alt="HIS">
+                        Hospital Information System
+                    </p>
+                    <p class="measure-lead-max text-50 small mr-8pt">Hospital Information System (HIS) is a comprehensive solution for healthcare facilities, featuring BPJS, SATUSEHAT, LIS, RIS Integration & Back Office Modules.</p>
+                    <p class="mb-8pt d-flex">
+                        <a href="" class="text-70 text-underline mr-8pt small">Terms</a>
+                        <a href="" class="text-70 text-underline small">Privacy policy</a>
+                    </p>
+                    <p class="text-50 small mt-n1 mb-0">Copyright 2023 &copy; All rights reserved.</p>
+                </div>
+            </div>
+            <!-- // END Footer -->
+        </div>
+
+        <!-- // END drawer-layout__content -->
+
+        <!-- Drawer -->
+        <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-dark-pickled-bluewood sidebar-left" data-perfect-scrollbar>
+
+                    <!-- Sidebar Content -->
+                    <div class="d-flex align-items-center navbar-height">
+                        <form action="index.html" class="search-form search-form--black mx-16pt pr-0 pl-16pt">
+                            <input type="text" class="form-control pl-0" placeholder="Search">
+                            <button class="btn" type="submit"><i class="material-icons">search</i></button>
+                        </form>
+                    </div>
+
+                    <a href="index.html" class="sidebar-brand">
+                        <span class="avatar avatar-xl sidebar-brand-icon h-auto">
+                            <span class="avatar-title rounded bg-primary">
+                                <i class="material-icons">local_hospital</i>
+                            </span>
+                        </span>
+                        <span>HIS</span>
+                    </a>
+
+                    <div class="sidebar-heading">Main Menu</div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="index.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">dashboard</span>
+                                <span class="sidebar-menu-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">people</span>
+                                <span class="sidebar-menu-text">Patient Management</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">event_available</span>
+                                <span class="sidebar-menu-text">Appointments</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">assignment</span>
+                                <span class="sidebar-menu-text">Medical Records</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">local_pharmacy</span>
+                                <span class="sidebar-menu-text">Pharmacy</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="sidebar-heading">Integrations</div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="bpjs.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">security</span>
+                                <span class="sidebar-menu-text">BPJS Integration</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="satusehat.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">cloud_done</span>
+                                <span class="sidebar-menu-text">SATUSEHAT Integration</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="lis.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">science</span>
+                                <span class="sidebar-menu-text">LIS Integration</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="ris.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">image</span>
+                                <span class="sidebar-menu-text">RIS Integration</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="sidebar-heading">Back Office</div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item active">
+                            <a class="sidebar-menu-button" href="backoffice.html">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">business</span>
+                                <span class="sidebar-menu-text">Back Office Modules</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">monetization_on</span>
+                                <span class="sidebar-menu-text">Billing & Finance</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">assessment</span>
+                                <span class="sidebar-menu-text">Reports</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="#">
+                                <span class="material-icons sidebar-menu-icon sidebar-menu-icon--left">settings</span>
+                                <span class="sidebar-menu-text">Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- // END Sidebar Content -->
+                </div>
+            </div>
+        </div>
+        <!-- // END Drawer -->
+    </div>
+    <!-- // END Drawer Layout -->
+
+    <!-- jQuery -->
+    <script src="../../public/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../../public/vendor/popper.min.js"></script>
+    <script src="../../public/vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../../public/vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- DOM Factory -->
+    <script src="../../public/vendor/dom-factory.js"></script>
+
+    <!-- MDK -->
+    <script src="../../public/vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../../public/js/app.js"></script>
+
+    <!-- Preloader -->
+    <script src="../../public/js/preloader.js"></script>
+
+</body>
+
+</html>
